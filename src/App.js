@@ -1,12 +1,24 @@
+import req from "./apis/requests";
 import "./App.css";
 import Banner from "./components/Banner";
 import Nav from "./components/Nav";
+import Row from "./components/Row";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Nav />
       <Banner />
+      <Row
+        title="NETFLIX ORIGINALS"
+        id=" NO"
+        fetchUrl={req.fetchNetflixOriginals}
+        isLargeRow
+      />
+      <Row title="Trending Now" id="TN" fetchUrl={req.fetchTrending} />
+      <Row title="Top Rated" id="TR" fetchUrl={req.fetchTopRated} />
+      <Row title="Action Movies" id="AM" fetchUrl={req.fetchActionMovies} />
+      <Row title="Comedy Movies" id="CM" fetchUrl={req.fetchComedyMovies} />
     </div>
   );
 }
