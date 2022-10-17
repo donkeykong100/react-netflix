@@ -10,12 +10,12 @@ export default function Row({ title, fetchUrl, id, isLargeRow }) {
       data: { results },
     } = await axios(fetchUrl);
     setMovies(results);
-  }, []);
+  }, [fetchUrl]);
 
   useEffect(() => {
     fetchMovieData();
   }, []);
-  console.log(movies);
+
   return (
     <section className="row">
       <h2>{title}</h2>
